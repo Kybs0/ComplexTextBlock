@@ -1,0 +1,16 @@
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\bin\Debug\ComplexTextBlockDemo.exe.config
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\bin\Debug\ComplexTextBlockDemo.exe
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\bin\Debug\ComplexTextBlockDemo.pdb
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\ComplexTextBlockDemo.csprojAssemblyReference.cache
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\MainWindow.g.cs
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\App.g.cs
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\ComplexTextBlockDemo_MarkupCompile.cache
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\ComplexTextBlockDemo_MarkupCompile.lref
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\MainWindow.baml
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\ComplexTextBlockDemo.g.resources
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\ComplexTextBlockDemo.Properties.Resources.resources
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\ComplexTextBlockDemo.csproj.GenerateResource.cache
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\ComplexTextBlockDemo.csproj.CoreCompileInputs.cache
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\ComplexTextBlockDemo.exe
+F:\GitHub\ComplexTextBlockDemo\ComplexTextBlockDemo\obj\Debug\ComplexTextBlockDemo.pdb
