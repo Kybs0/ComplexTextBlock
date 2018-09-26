@@ -79,12 +79,13 @@ namespace ComplexTextBlockDemo
 
             if (string.IsNullOrEmpty(text) || contentFormats == null || contentFormats.Count == 0)
             {
+                complexTextBlock.Text = text;
                 return;
             }
 
             for (int i = 0; i < contentFormats.Count; i++)
             {
-                text = text.Replace(i.ToString(), "0");
+                text = text.Replace("{" + $"{i}" + "}", FormattedKey);
             }
 
             var list = GetTextList(text);
