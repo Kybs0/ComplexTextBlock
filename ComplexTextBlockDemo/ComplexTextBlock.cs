@@ -40,6 +40,10 @@ namespace ComplexTextBlockDemo
 
         #region 文本
 
+        /// <summary>
+        /// 重写文本属性
+        /// <remarks>延用原有文本属性，在其基础上处理格式化文本</remarks>
+        /// </summary>
         public new static DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(ComplexTextBlock), new PropertyMetadata(TextPropertyChanged));
 
@@ -61,6 +65,9 @@ namespace ComplexTextBlockDemo
 
         #region 加载复杂文本
 
+        /// <summary>
+        /// 格式化字符Key
+        /// </summary>
         private const string FormattedKey = "{0}";
 
         /// <summary>
@@ -79,6 +86,7 @@ namespace ComplexTextBlockDemo
 
             if (string.IsNullOrEmpty(text) || contentFormats == null || contentFormats.Count == 0)
             {
+                //如果当前文本为空或者待格式化列表为空，则显示为当前文本
                 complexTextBlock.Text = text;
                 return;
             }
@@ -102,7 +110,12 @@ namespace ComplexTextBlockDemo
             {
                 if (paraText == FormattedKey)
                 {
-                    stackPanel.Children.Add(contentFormats[formatIndex++]);
+                    var uiElement = contentFormats[formatIndex++];
+                    if (uiElement is FrameworkElement frameworkElement)
+                    {
+                        frameworkElement.VerticalAlignment = VerticalAlignment.Center;
+                    }
+                    stackPanel.Children.Add(uiElement);
                 }
                 else
                 {
@@ -113,7 +126,6 @@ namespace ComplexTextBlockDemo
                     }
                     else
                     {
-                        textLine.VerticalAlignment = complexTextBlock.VerticalAlignment;
                         textLine.HorizontalAlignment = complexTextBlock.HorizontalAlignment;
                         textLine.Background = complexTextBlock.Background;
                         textLine.FontFamily = complexTextBlock.FontFamily;
@@ -122,6 +134,7 @@ namespace ComplexTextBlockDemo
                         textLine.FontWeight = complexTextBlock.FontWeight;
                         textLine.FontStyle = complexTextBlock.FontStyle;
                     }
+                    textLine.VerticalAlignment = VerticalAlignment.Center;
                     textLine.Text = paraText;
                     stackPanel.Children.Add(textLine);
                 }
