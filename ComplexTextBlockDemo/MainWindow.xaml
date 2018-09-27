@@ -12,6 +12,9 @@
         <system:String x:Key="LangSource2">小王,好好{0}，详见学习计划!</system:String>
         <system:String x:Key="LangSource3">小王,好好{0}，详见{1}!</system:String>
 
+        <system:String x:Key="LangSource4">已经学习{0}天</system:String>
+        <system:String x:Key="LangSource5">已经学习{0:D1},剩余计划学习天数{1}</system:String>
+
         <Style TargetType="TextBlock">
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="FontSize" Value="18"></Setter>
@@ -41,33 +44,57 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <local:ComplexTextBlock Text="{StaticResource LangSource1}" Style="{StaticResource ComplexTextBlockStyle}" Margin="0 10 0 0">
-                <local:ComplexTextBlock.ContentFormats>
-                    <local:ContentFormatsCollection>
-                        <TextBlock Text="小王" Foreground="Red" VerticalAlignment="Center"/>
-                    </local:ContentFormatsCollection>
-                </local:ComplexTextBlock.ContentFormats>
-            </local:ComplexTextBlock>
+        <StackPanel>
+            <GroupBox Header="使用StringFormat处理Demo" HorizontalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Text="{Binding LearnedDays,StringFormat={StaticResource LangSource4}}"/>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0:D3}/{1}">
+                                <Binding Path="LearnedDays" FallbackValue="0" />
+                                <Binding Path="PlanningDays" FallbackValue="0" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{StaticResource LangSource5}">
+                                <Binding Path="LearnedDays" FallbackValue="0" />
+                                <Binding Path="PlanningDays" FallbackValue="0" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="用户控件ComplexTextBlock显示的Demo" Margin="0 30 0 0" HorizontalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <local:ComplexTextBlock Text="{StaticResource LangSource3}" Style="{StaticResource ComplexTextBlockStyle}" Margin="0 10 0 0"/>
+                    <local:ComplexTextBlock Text="{StaticResource LangSource1}" Style="{StaticResource ComplexTextBlockStyle}" Margin="0 10 0 0">
+                        <local:ComplexTextBlock.ContentFormats>
+                            <local:ContentFormatsCollection>
+                                <TextBlock Text="小王" Foreground="Red" VerticalAlignment="Center"/>
+                            </local:ContentFormatsCollection>
+                        </local:ComplexTextBlock.ContentFormats>
+                    </local:ComplexTextBlock>
 
-            <local:ComplexTextBlock Text="{StaticResource LangSource2}" Style="{StaticResource ComplexTextBlockStyle}" Margin="0 10 0 0">
-                <local:ComplexTextBlock.ContentFormats>
-                    <local:ContentFormatsCollection>
-                        <Button Content="学习" Click="ButtonBase_OnClick" VerticalAlignment="Center"/>
-                    </local:ContentFormatsCollection>
-                </local:ComplexTextBlock.ContentFormats>
-            </local:ComplexTextBlock>
+                    <local:ComplexTextBlock Text="{StaticResource LangSource2}" Style="{StaticResource ComplexTextBlockStyle}" Margin="0 10 0 0">
+                        <local:ComplexTextBlock.ContentFormats>
+                            <local:ContentFormatsCollection>
+                                <Button Content="学习" Click="ButtonBase_OnClick" VerticalAlignment="Center"/>
+                            </local:ContentFormatsCollection>
+                        </local:ComplexTextBlock.ContentFormats>
+                    </local:ComplexTextBlock>
 
-            <local:ComplexTextBlock Text="{StaticResource LangSource3}" Style="{StaticResource ComplexTextBlockStyle}" Margin="0 10 0 0">
-                <local:ComplexTextBlock.ContentFormats>
-                    <local:ContentFormatsCollection>
-                        <Button Content="学习" Click="ButtonBase_OnClick" VerticalAlignment="Center"></Button>
-                        <Button x:Name="LinkedButton" Content="学习计划" Click="LinkedButton_OnClick" Style="{StaticResource LinkedTextBlock}" VerticalAlignment="Center"/>
-                    </local:ContentFormatsCollection>
-                </local:ComplexTextBlock.ContentFormats>
-            </local:ComplexTextBlock>
-
-            <local:ComplexTextBlock Text="{StaticResource LangSource3}" Style="{StaticResource ComplexTextBlockStyle}" Margin="0 10 0 0"/>
+                    <local:ComplexTextBlock Text="{StaticResource LangSource3}" Style="{StaticResource ComplexTextBlockStyle}" Margin="0 10 0 0">
+                        <local:ComplexTextBlock.ContentFormats>
+                            <local:ContentFormatsCollection>
+                                <Button Content="学习" Click="ButtonBase_OnClick" VerticalAlignment="Center"></Button>
+                                <Button x:Name="LinkedButton" Content="学习计划" Click="LinkedButton_OnClick" Style="{StaticResource LinkedTextBlock}" VerticalAlignment="Center"/>
+                            </local:ContentFormatsCollection>
+                        </local:ComplexTextBlock.ContentFormats>
+                    </local:ComplexTextBlock>
+                </StackPanel>
+            </GroupBox>
         </StackPanel>
     </Grid>
 </Window>

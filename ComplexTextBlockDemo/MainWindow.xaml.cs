@@ -24,6 +24,7 @@ namespace ComplexTextBlockDemo
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -34,5 +35,12 @@ namespace ComplexTextBlockDemo
         {
             Process.Start("iexplore.exe", "http://www.cnblogs.com/kybs0/");
         }
+
+        public int LearnedDays => 30;
+
+        public int PlanningDays => 365;
+
+        public int UsedDays => 30;
+        
     }
 }
